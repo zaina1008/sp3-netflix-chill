@@ -1,4 +1,4 @@
 import java.util.Scanner;
-public class LandingPage {
+public class LandingPage  {
     Scanner scan = new Scanner(System.in);
 }
