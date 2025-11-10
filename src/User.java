@@ -37,4 +37,5 @@ public class User {
         this.subscription = subscription;
     }
 
+
 }
