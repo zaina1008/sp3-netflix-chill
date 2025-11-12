@@ -5,9 +5,10 @@ public class Movie  extends Media {
     public Movie() {
 
     }
-    public Movie(String title, String name){
-
-    }
+    //public Movie(String title, String name){
+       // this.title = title;
+       // this.genre = genre;
+    //}
     public Movie(String title, int year, String genre, double rating) {
         super(title, rating, genre);
         this.year = year;

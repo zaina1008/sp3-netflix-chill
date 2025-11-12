@@ -19,18 +19,25 @@ public class MovieLoader {
                 if (line.isEmpty()) continue;
 
                 // If the first line looks like a header, skip it
-                if (first && line.toLowerCase().startsWith("title,") ) {
+                if (first && line.toLowerCase().startsWith("title;") ) {
                     first = false;
                     continue;
                 }
                 first = false;
 
                 // Simple split (works if fields do not contain commas inside quotes)
-                String[] parts = line.split(",", -1);
-                String title = parts.length > 0 ? parts[0] : "";
-                String genre = parts.length > 1 ? parts[1] : "";
+                //String[] parts = line.split(",", -1);
+                //String title = parts.length > 0 ? parts[0] : "";
+                //String genre = parts.length > 1 ? parts[1] : "";
+                //movies.add(new Movie(title, genre));
 
-                movies.add(new Movie(title, genre));
+                try {
+                    Movie movie = new Movie();
+                    movie.parseDataString(line);
+                    movies.add(movie);
+                } catch (Exception e) {
+                    System.out.println("⚠️ Skipping invalid line: " + line);
+                }
             }
         }
         return movies;
