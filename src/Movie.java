@@ -5,10 +5,6 @@ public class Movie  extends Media {
     public Movie() {
 
     }
-    //public Movie(String title, String name){
-       // this.title = title;
-       // this.genre = genre;
-    //}
     public Movie(String title, int year, String genre, double rating) {
         super(title, rating, genre);
         this.year = year;
@@ -25,13 +21,19 @@ public class Movie  extends Media {
     }
 
     public void parseDataString(String line) {
-        // System.out.println(line);
+        /*// System.out.println(line);
         String[] parts = line.split(";");
         this.title = parts[0].trim();
         this.year = Integer.parseInt(parts[1].trim());
         this.genre = parts[2].trim();
         this.rating = Double.parseDouble(parts[3].trim().replace(",", "."));
         // System.out.println("title: " + title + " | year: " + year + " | genre: " + genre + " | rating: " + rating);
-
+*/
+        //this is the one working
+        String[] parts = line.split(";");
+        this.title = parts[0].trim();
+        this.year = Integer.parseInt(parts[1].trim());
+        this.genre = parts[2].trim().toLowerCase(); // lowercase
+        this.rating = Double.parseDouble(parts[3].trim().replace(",", "."));
     }
 }
