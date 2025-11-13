@@ -149,12 +149,32 @@ public class Main {
                 return;
             }
 
-            List<Movie> filtered = new ArrayList<>();
+            /*List<Movie> filtered = new ArrayList<>();
             for (Movie m : movies) {
                 if (genre.equalsIgnoreCase(m.getGenre())) {
                     filtered.add(m);
                 }
+            }*/
+
+           /* List<Movie> filtered = new ArrayList<>();
+            for (Movie m : movies) {
+                if (m.getGenre() != null && m.getGenre().trim().equalsIgnoreCase(genre)) {
+                    filtered.add(m);
+                }*/
+// this is the one working for genre
+            List<Movie> filtered = new ArrayList<>();
+            for (Movie m : movies) {
+                if (m.getGenre() != null) {
+                    String[] genres = m.getGenre().split(","); // split multiple genres
+                    for (String g : genres) {
+                        if (g.trim().equalsIgnoreCase(genre)) {
+                            filtered.add(m);
+                            break; // stop after first match
+                        }
+                    }
+                }
             }
+
 
             if (filtered.isEmpty()) {
                 System.out.println("\nNo " + genre + " movies found in the database.");
@@ -193,11 +213,18 @@ public class Main {
             String movieName = scanner.nextLine().trim().toLowerCase();
 
             List<Movie> filtered = new ArrayList<>();
+            //for (Movie m : movies) {
+                //  if (m.getTitle().toLowerCase().contains(movieName)) {
+                //  filtered.add(m);
+                // }
+
+           // }
             for (Movie m : movies) {
-                if (m.getTitle().toLowerCase().contains(movieName)) {
+                if (m.getTitle() != null && m.getTitle().toLowerCase().contains(movieName)) {
                     filtered.add(m);
                 }
             }
+
 
             if (filtered.isEmpty()) {
                 System.out.println("\nNo movies matching \"" + movieName + "\" found in the database.");

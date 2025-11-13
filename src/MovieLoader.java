@@ -24,7 +24,7 @@ public class MovieLoader {
                     continue;
                 }
                 first = false;
-
+// coden virkede efter vi lavde en try catch
                 // Simple split (works if fields do not contain commas inside quotes)
                 //String[] parts = line.split(",", -1);
                 //String title = parts.length > 0 ? parts[0] : "";
@@ -40,6 +40,8 @@ public class MovieLoader {
                 }
             }
         }
+
+
         return movies;
     }
 }
